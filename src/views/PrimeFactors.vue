@@ -5,7 +5,7 @@
     <table id="prime-factor-table">
       <tr>
         <th></th>
-        <th class="titler" v-for="(prime, i) in primes" :key="i">
+        <th class="titler" v-for="(prime, i) in primes" :key="i" :class="headerClass">
           {{ prime }}
         </th>
       </tr>
@@ -42,6 +42,9 @@ export default {
       }
       return solution;
     },
+    headerClass: function () {
+      return "white-header"
+    }
   },
   methods: {
     // opting for readability over speed
@@ -67,7 +70,11 @@ export default {
       return this.factor(num);
     },
     ifNotZero: (num) => {
-      return num ? num : "";
+      if (num == 0) {
+        return '';
+      }
+      return num;
+      // &#9650;
     },
   },
 };
@@ -84,14 +91,19 @@ export default {
 
 #prime-factor-table {
   font-size: 25px;
-  font-family: "Georgia";
-  background-image: linear-gradient(60deg, #1153e2, #44f85c);
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.white-header {
+  color: white;
 }
 
 td {
   width: 32px;
+  text-align: center;
 }
 
 .titler {
