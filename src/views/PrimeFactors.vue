@@ -5,17 +5,18 @@
     <table id="prime-factor-table">
       <tr>
         <th></th>
-        <th v-for="(prime, i) in primes" :key="i">
+        <th class="titler" v-for="(prime, i) in primes" :key="i">
           {{ prime }}
         </th>
       </tr>
       <tr
+        class="titler"
         v-for="(factors, factored_num) in factoredTableData"
         :key="factored_num"
       >
         <td>{{ factored_num + 2 }}</td>
         <td v-for="(num_of_factor, j) in factors" :key="j">
-          {{ num_of_factor }}
+          {{ ifNotZero(num_of_factor) }}
         </td>
       </tr>
     </table>
@@ -91,5 +92,9 @@ export default {
 
 td {
   width: 32px;
+}
+
+.titler {
+  color: white;
 }
 </style>
