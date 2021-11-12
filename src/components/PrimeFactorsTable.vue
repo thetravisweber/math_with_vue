@@ -10,12 +10,11 @@
         </th>
       </tr>
       <tr
-        class="titler"
         v-for="(factors, factored_num) in factoredTableData"
         :key="factored_num"
       >
-        <td>{{ factored_num + 2 }}</td>
-        <td v-for="(num_of_factor, j) in factors" :key="j">
+        <td :class="headerClass">{{ factored_num + 2 }}</td>
+        <td v-for="(num_of_factor, j) in factors" :key="j" :style="factorStyle()">
           {{ ifNotZero(num_of_factor) }}
         </td>
       </tr>
@@ -72,6 +71,11 @@ export default {
       this.primes.push(num);
       return this.factor(num);
     },
+    factorStyle: () => {
+      return {
+        color: "#FFFFFF"
+      };
+    },
     ifNotZero: (num) => {
       if (num == 0) {
         return '';
@@ -90,17 +94,17 @@ export default {
 
 .prime-factors {
   background-color: black;
-}
-
-#prime-factor-table {
   font-size: 25px;
+}
+.prime-factor-table {
   background: -webkit-linear-gradient(#eee, #333);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .white-header {
-  color: white;
+  -webkit-text-fill-color: white;
 }
 
 td {
@@ -108,7 +112,4 @@ td {
   text-align: center;
 }
 
-.titler {
-  color: white;
-}
 </style>
