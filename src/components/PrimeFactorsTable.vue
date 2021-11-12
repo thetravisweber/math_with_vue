@@ -15,7 +15,7 @@
       >
         <td :class="headerClass">{{ factored_num + 2 }}</td>
         <td v-for="(num_of_factor, j) in factors" :key="j" :style="factorStyle()">
-          {{ ifNotZero(num_of_factor) }}
+          {{ display_number_of_factors(num_of_factor, abstract_symbol) }}
         </td>
       </tr>
     </table>
@@ -28,12 +28,12 @@
 export default {
   name: "PrimeFactors",
   props: {
-    abstract: Boolean
+    abstract_symbol: String
   },
   data: function () {
     return {
       primes: [2, 3],
-      max_number: 40,
+      max_number: 40
     };
   },
   computed: {
@@ -76,13 +76,23 @@ export default {
         color: "#FFFFFF"
       };
     },
-    ifNotZero: (num) => {
+    display_number_of_factors: (num, abstract_symbol) => {
       if (num == 0) {
         return '';
       }
-      return num;
-      // &#9650;
-    },
+      switch(abstract_symbol) {
+        case "triangle":
+          return "▲";//'&#9650;';
+        case "rectangle":
+          return '▬';
+        case "square":
+          return "◼";
+        case "diamond":
+          return '◈'
+        default:
+          return num
+      }
+    }
   },
 };
 </script>

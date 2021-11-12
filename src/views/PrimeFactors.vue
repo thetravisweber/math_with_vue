@@ -1,6 +1,6 @@
 <template>
   <div class="prime-factors">
-    <PrimeFactorsTable />
+    <PrimeFactorsTable :abstract_symbol="'triangle'" />
   </div>
 </template>
 
