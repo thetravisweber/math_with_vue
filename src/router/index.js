@@ -10,7 +10,7 @@ const routes = [
   },
   {
     path: '/prime-factors',
-    name: 'Home',
+    name: 'PrimeFactors',
     component: PrimeFactors
   }
 ]
