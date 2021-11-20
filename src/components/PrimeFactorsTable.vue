@@ -34,7 +34,7 @@ export default {
   data: function () {
     return {
       primes: [2, 3],
-      max_number: 69
+      max_number: 100
     };
   },
   computed: {
@@ -82,7 +82,7 @@ export default {
     },
 
     sizeMap: function (number) {
-      return this.map(number, 0, this.max_number, 25, 0);
+      return this.expmap(number, 0, this.max_number, 25, 0);
     },
 
     columnStyle: function(prime) {
@@ -122,6 +122,15 @@ export default {
     map: function (num, start1, end1, start2, end2) {
       num -= start1;
       num /= (end1-start1);
+      num *= (end2-start2);
+      num += start2;
+      return num;
+    },
+
+    expmap: function (num, start1, end1, start2, end2) {
+      num -= start1;
+      num /= (end1-start1);
+      num = num**1.5;
       num *= (end2-start2);
       num += start2;
       return num;
