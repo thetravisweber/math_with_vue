@@ -111,7 +111,6 @@ export default {
 
     goldIfPrime: function(number) {
       if (this.primes.includes(number)) {
-        console.log("got a prime");
         return {
           color: "rgb(204,164,61)"
         };
