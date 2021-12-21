@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import PrimeFactors from '../views/PrimeFactors.vue'
+import GameTheoryJesus from '../views/GameTheoryJesus.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/prime-factors',
     name: 'PrimeFactors',
     component: PrimeFactors
+  },
+  {
+    path: '/game-theory-jesus',
+    name: 'GameTheoryJesus',
+    component: GameTheoryJesus
   }
 ]
 
