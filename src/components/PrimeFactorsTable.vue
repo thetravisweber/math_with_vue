@@ -72,7 +72,6 @@ export default {
       this.primes.push(num);
       return this.factor(num);
     },
-
     HSBToRGB: function(h, s, b) {
       s /= 100;
       b /= 100;
@@ -80,11 +79,9 @@ export default {
       const f = (n) => b * (1 - s * Math.max(0, Math.min(k(n), 4 - k(n), 1)));
       return [255 * f(5), 255 * f(3), 255 * f(1)];
     },
-
     sizeMap: function (number) {
       return this.expmap(number, 0, this.max_number, 25, 0);
     },
-
     columnStyle: function(prime) {
       let size = this.map(prime, 0, this.max_number, 25, 10);
       return {
@@ -92,7 +89,6 @@ export default {
         "width": (size*1.1)+"px"
       };
     },
-
     rowStyle: function(row_number) {
       let size = this.sizeMap(row_number);
       return {
@@ -100,7 +96,6 @@ export default {
         "height": (size*1.1)+"px"
       };
     },
-
     factorStyle: function(num_of_factor) {
       let hue = this.map(num_of_factor, 0, 3, 140, 220);
       let rgb = this.HSBToRGB(hue, 100, 100);
@@ -108,7 +103,6 @@ export default {
         color: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`
       };
     },
-
     goldIfPrime: function(number) {
       if (this.primes.includes(number)) {
         return {
@@ -117,7 +111,6 @@ export default {
       }
       return {};
     },
-
     map: function (num, start1, end1, start2, end2) {
       num -= start1;
       num /= (end1-start1);
@@ -125,7 +118,6 @@ export default {
       num += start2;
       return num;
     },
-
     expmap: function (num, start1, end1, start2, end2) {
       num -= start1;
       num /= (end1-start1);
