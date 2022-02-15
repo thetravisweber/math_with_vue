@@ -34,7 +34,7 @@ export default {
   data: function () {
     return {
       primes: [2, 3],
-      max_number: 100
+      max_number: 69
     };
   },
   computed: {
